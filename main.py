@@ -62,7 +62,7 @@ class DrawFrames:
                 uv = Vector3(i, j) / Vector3(self.width, self.height) * Vector3(2.0, 2.0) - Vector3(1.0, 1.0)
                 uv.x *= float(self.aspect * self.pixel_aspect)
 
-                ro = Vector3(-12 + ws, da, ud)
+                ro = Vector3(-6 + ws, da, ud)
 
                 rd = Vector3(3, uv.x, uv.y).norm()
                 ro = ro.rotate_y(roty + .0001)
@@ -102,15 +102,15 @@ class DrawFrames:
                     #     n = it_point.norm()
 
 
-                    # spheres render
-                    sphere = shapes.Sphere(ro + sphere_pos1, rd, 1)
-                    intersection = sphere.render_sphere()
-                    # pixel color selection for sphere
-                    if intersection.x > 0:
-                        it_point = ro + sphere_pos1 + rd * Vector3(intersection.x, intersection.x, intersection.x)
-                        min_it = intersection.x
-                        n = it_point.norm()
-                    #
+                    # # spheres render
+                    # sphere = shapes.Sphere(ro + sphere_pos1, rd, 1)
+                    # intersection = sphere.render_sphere()
+                    # # pixel color selection for sphere
+                    # if intersection.x > 0:
+                    #     it_point = ro + sphere_pos1 + rd * Vector3(intersection.x, intersection.x, intersection.x)
+                    #     min_it = intersection.x
+                    #     n = it_point.norm()
+
                     # sphere = shapes.Sphere(ro + sphere_pos2, rd, 1)
                     # intersection = sphere.render_sphere()
                     # # pixel color selection for sphere
@@ -118,8 +118,8 @@ class DrawFrames:
                     #     it_point = ro + sphere_pos2 + rd * Vector3(intersection.x, intersection.x, intersection.x)
                     #     min_it = intersection.x
                     #     n = it_point.norm()
-                    #
-                    #
+
+
                     # # cylinder render
                     # ca = Vector3(0, 0, 1).norm()
                     # cylinder = shapes.Cylinder(ro, rd, Vector3(0, 0, 0), ca, 1)
@@ -130,14 +130,14 @@ class DrawFrames:
                     #     n = intersection.norm()
 
 
-                    # cube render
-                    cube = shapes.Cube(ro, rd, 2)
-                    intersection = cube.render_cube()
-
-                    # pixel color selection for cube
-                    if 0 < intersection.x < min_it:
-                        min_it = intersection.x
-                        n = shapes.out_normal
+                    # # cube render
+                    # cube = shapes.Cube(ro, rd, 2)
+                    # intersection = cube.render_cube()
+                    #
+                    # # pixel color selection for cube
+                    # if 0 < intersection.x < min_it:
+                    #     min_it = intersection.x
+                    #     n = shapes.out_normal
 
 
                     # # plane render
@@ -175,7 +175,7 @@ roty = 0
 
 
 def main():
-    frame = DrawFrames(120, 30)
+    frame = DrawFrames(168, 44)
     frame_num = 0
 
     # frame rendering cycle
